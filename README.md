@@ -21,3 +21,5 @@ case someone changed your password.
     - speedtest from here
 
 #### If you ever felt the pain by the constantly change of wifi password of your org then please contribute to the project.
+
+#### Speed Test
