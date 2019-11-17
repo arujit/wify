@@ -1,9 +1,15 @@
-__version__ = "3.0.0"
+__version__ = "0.0.1"
 
 from commands.cli import CLIHandler
+from utils import string_utils
 
 
 def main():
+    string_utils.print_color('green', "\r\n" +
+                             '====================================\r\n' +
+                             ('             WiFy %s\r\n' % __version__) +
+                             '====================================\r\n' +
+                             '        (By arujit @ Github)\r\n')
     CLIHandler.commands()
 
 
