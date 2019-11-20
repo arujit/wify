@@ -8,5 +8,5 @@ class Version(Operation):
 
     def operation(self) -> bool:
         result_string = "wifi, version : " + constants.VERSION
-        string_utils
+        string_utils.print_result(result_string)
         return True
