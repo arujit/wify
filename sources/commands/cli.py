@@ -3,7 +3,7 @@ import logging
 import sys
 from utils import string_utils
 from utils import constants
-from utils import other_utils
+from utils import common_utils
 import sys
 from features.password import Password
 from features.version import Version
@@ -16,7 +16,6 @@ from errors.no_command_found import NoCommandFound
 class CLIHandler:
     logging.basicConfig(level=logging.INFO)
     _logger = logging.getLogger("CLIHandler")
-    platform = None
 
     @classmethod
     def arguments(cls):
@@ -38,7 +37,6 @@ class CLIHandler:
     def commands(cls):
         parser = cls.arguments()
         arguments, unknown_args = parser.parse_known_args()
-        cls.platform = other_utils.get_os()
         operation = None
         # add features here
         try:
@@ -51,12 +49,12 @@ class CLIHandler:
                 pass
 
             elif arguments.connect:
-                wifi_name = other_utils.get_wifiname_in_command()
+                wifi_name = common_utils.get_wifiname_in_command()
                 operation = Connect()
                 pass
 
             elif arguments.password:
-                wifi_name = other_utils.get_wifiname_in_command()
+                wifi_name = common_utils.get_wifiname_in_command()
                 operation = Password(wifi_name)
                 pass
 

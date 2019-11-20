@@ -1,5 +1,5 @@
 from features.operation import Operation
-import utils.other_utils
+import utils.common_utils
 
 
 class Password(Operation):
@@ -12,6 +12,6 @@ class Password(Operation):
         pass
 
     def operation(self) -> bool:
-        operating_system = utils.other_utils.get_os()
-        
+        operating_system = utils.common_utils.get_os()
+
         return True
