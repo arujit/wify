@@ -10,3 +10,6 @@ class Colours:
     green = Fore.GREEN
     yellow = Fore.YELLOW
     magenta = Fore.MAGENTA
+
+class OS:
+    mac = "Darwin"
