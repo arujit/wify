@@ -9,7 +9,7 @@ def main():
                             '====================================\r\n' +
                             ('             WiFy %s\r\n' % __version__) +
                             '====================================\r\n' +
-                            '        (By arujit @ Github)\r\n')
+                            '     (By james.bondu @ Github)\r\n')
     CLIHandler.commands()
 
 

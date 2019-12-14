@@ -10,6 +10,7 @@ from features.version import Version
 from features.list import ListConnections
 from features.speed_test import Speed
 from features.connect import Connect
+from features.current import Current
 from errors.no_command_found import NoCommandFound
 
 
@@ -29,6 +30,8 @@ class CLIHandler:
             '-c', "--connect", help="Connect to your desired wifi.", action="store_true")
         parser.add_argument(
             '-p', "--password", help="Password of the given network", action="store_true")
+        parser.add_argument(
+            '-n', "--network", help="get the currently connected network", action="store_true")
         parser.add_argument(
             '-s', "--speed", help="Speed test.", action="store_true")
         return parser
@@ -55,11 +58,17 @@ class CLIHandler:
 
             elif arguments.password:
                 wifi_name = common_utils.get_wifiname_in_command()
+                if (wifi_name is None):
+                    wifi_name = Current.find_current_network()
                 operation = Password(wifi_name)
                 pass
 
             elif arguments.speed:
                 operation = Speed()
+                pass
+
+            elif arguments.network:
+                operation = Current()
                 pass
 
             else:
@@ -69,5 +78,6 @@ class CLIHandler:
             if not result_status:
                 raise NoCommandFound()
 
-        except:
-            string_utils.print_error("invalid command")
+        except NoCommandFound:
+            string_utils.print_error(
+                "This command is not supported right now.")

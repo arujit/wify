@@ -9,6 +9,9 @@ def get_os():
 
 def get_wifiname_in_command():
     if len(sys.argv) != 3:
-        raise NoCommandFound()
+        return None
     else:
         return sys.argv[2]
+
+def string_from_bytes(stdout) -> str:
+    return str(stdout, 'utf-8')
